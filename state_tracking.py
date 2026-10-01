@@ -24,10 +24,11 @@ for i in range(max_iters):
     if state["stage"] == 3:
         state["done"] = True
         state["status"] = "success"
-        return state
+        break
 
 # If max iterations are exceeded
-state["done"] = True
-state["status"] = "failure"
+if not state["done"]:
+    state["done"] = True
+    state["status"] = "failure"
 
-return state
+print("Final State:", state)
